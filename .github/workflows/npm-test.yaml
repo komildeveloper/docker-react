@@ -32,6 +32,4 @@ jobs:
       - name: Build
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/docker-react -f Dockerfile.dev .
       - name: Test
-        run: docker run ${{ secrets.DOCKERHUB_USERNAME }}/docker-react npm run test -- --coverage
-        env:
-          CI: true
+        run: docker run -e CI=true ${{ secrets.DOCKERHUB_USERNAME }}/docker-react npm run test -- --coverage
