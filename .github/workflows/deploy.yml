@@ -38,3 +38,5 @@ jobs:
         version_label: "elb-${{ steps.format-time.outputs.replaced }}"
         region: us-east-1
         deployment_package: docker-ci.zip
+    - name: Deployed!
+      run: echo "App deployed to ELB"
