@@ -30,4 +30,6 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-react
       - name: Test
-        run: docker run ${{ secrets.DOCKERHUB_USERNAME }}/docker-react npm run test -- --coverage
+        run:
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/docker-react -f Dockerfile.dev
+          docker run ${{ secrets.DOCKERHUB_USERNAME }}/docker-react npm run test -- --coverage
